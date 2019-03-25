@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import styles from './Home.css';
-const fs = window.require('fs');
 
+const fs = window.require('fs');
 type Props = {};
 
 export default class Home extends Component<Props> {
@@ -19,11 +19,15 @@ export default class Home extends Component<Props> {
 
   componentDidMount(): void {
     setInterval(() => {
-      fs.readFile("/Users/khc/workspace/electron-react-boilerplate/resources/mileage", 'utf-8', (err, data) => {
-        this.setState({
-          mileage: data
-        });
-      })
+      fs.readFile(
+        '/Users/khc/workspace/electron-react-boilerplate/resources/mileage',
+        'utf-8',
+        (err, data) => {
+          this.setState({
+            mileage: data
+          });
+        }
+      );
     }, 1000);
   }
 
