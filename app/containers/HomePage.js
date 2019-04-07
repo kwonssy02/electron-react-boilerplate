@@ -2,6 +2,11 @@
 import React, { Component, Fragment } from 'react';
 import Driving from '../components/Driving';
 import Recovering from '../components/Recovering';
+import IgnOff from '../components/IgnOff';
+import IgnOn from '../components/IgnOn';
+import Uploading from '../components/Uploading';
+import properties from '../constants/properties';
+
 const fs = window.require('fs');
 
 type Props = {};
@@ -20,7 +25,7 @@ export default class HomePage extends Component<Props> {
   componentDidMount(): void {
     setInterval(() => {
       fs.readFile(
-        '/Users/khc/workspace/electron-react-boilerplate/resources/status.info',
+        properties.statusFilePath,
         'utf-8',
         (err, data) => {
           if(err) {
@@ -41,9 +46,11 @@ export default class HomePage extends Component<Props> {
     const { status } = this.state;
     return (
       <Fragment>
-        {status === "driving" ? <Driving/> :
-          status === "recovering" ? <Recovering/> :
-            null}
+        {status === "driving" ? <Driving/> : null}
+        {status === "recovering" ? <Recovering/> : null}
+        {status === "ignOff" ? <IgnOff/> : null}
+        {status === "ignOn" ? <IgnOn/> : null}
+        {status === "uploading" ? <Uploading/> : null}
       </Fragment>
     );
   }

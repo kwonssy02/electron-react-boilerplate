@@ -7,6 +7,7 @@ import Gauge from 'react-canvas-gauge';
 import styles from './Driving.css';
 import carTailImg from '../../resources/images/car_tail.png';
 import carUpsideImg from '../../resources/images/car_upside.png';
+import properties from '../constants/properties';
 
 const fs = window.require('fs');
 type Props = {};
@@ -26,7 +27,7 @@ export default class Driving extends Component<Props> {
   componentDidMount(): void {
     setInterval(() => {
       fs.readFile(
-        '/Users/khc/workspace/electron-react-boilerplate/resources/mileage.info',
+        properties.mileageFilePath,
         'utf-8',
         (err, data) => {
           if(err) {
@@ -40,9 +41,10 @@ export default class Driving extends Component<Props> {
           }
         }
       );
+      const speed = this.state.speed;
       this.setState({
-        speed:this.state.speed+3
-      })
+        speed:speed+5
+      });
     }, 1000);
   }
 
@@ -62,7 +64,7 @@ export default class Driving extends Component<Props> {
           style={{
             position:"absolute",
             left:"7%",
-            top:"18%",
+            top:"22%",
             backgroundImage:"-webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.2)),to(rgba(255, 255, 255, 0)))",
             borderRadius:"50%"
           }}
@@ -72,12 +74,11 @@ export default class Driving extends Component<Props> {
         <Gauge
           size={400}
           theme={"dark"}
-          enableColorful={true}
           value={speed}
           style={{
             position:"absolute",
-            right:"5%",
-            top:"24%"
+            right:"6%",
+            top:"26%"
           }}
         />
 
@@ -87,7 +88,7 @@ export default class Driving extends Component<Props> {
           style={{
             position:"absolute",
             bottom:"5%",
-            left:"38%"
+            left:"37%"
           }}
           height={250}
         />
