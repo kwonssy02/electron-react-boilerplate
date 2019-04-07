@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 // import routes from '../constants/routes';
 import Gauge from 'react-canvas-gauge';
 
-import styles from './Home.css';
+import styles from './Driving.css';
 import carTailImg from '../../resources/images/car_tail.png';
 import carUpsideImg from '../../resources/images/car_upside.png';
 
 const fs = window.require('fs');
 type Props = {};
 
-export default class Home extends Component<Props> {
+export default class Driving extends Component<Props> {
   props: Props;
 
   constructor(props) {
@@ -35,7 +35,7 @@ export default class Home extends Component<Props> {
             })
           }else {
             this.setState({
-              mileage: data
+              mileage: data.trim()
             });
           }
         }
@@ -53,7 +53,7 @@ export default class Home extends Component<Props> {
         <h2 style={{position:"absolute", top:"5%", width:"100%", fontSize:"4rem"}}>HYUNDAI</h2>
 
         <h2 style={{position:"absolute", top:"40%", width:"100%", fontSize:"2rem", fontWeight:"lighter"}}>Mileage</h2>
-        <h2 style={{position:"absolute", top:"45%", width:"100%", fontSize:"2.5rem"}}>{mileage === undefined ? null : mileage + 'km'}</h2>
+        <h2 style={{position:"absolute", top:"45%", width:"100%", fontSize:"2.5rem"}}>{mileage === undefined ? null : `${mileage} km`}</h2>
 
 
         <img
