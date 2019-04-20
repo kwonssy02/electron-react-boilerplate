@@ -60,19 +60,18 @@ export default class Driving extends Component<Props> {
 
         <img
           src={carUpsideImg}
-          alt={"car_upside"}
           style={{
             position:"absolute",
             left:"7%",
-            top:"22%",
+            top:"15%",
             backgroundImage:"-webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.2)),to(rgba(255, 255, 255, 0)))",
             borderRadius:"50%"
           }}
-          height={500}
+          height={400}
         />
 
         <Gauge
-          size={400}
+          size={300}
           theme={"dark"}
           value={speed}
           style={{
@@ -84,20 +83,19 @@ export default class Driving extends Component<Props> {
 
         <img
           src={carTailImg}
-          alt={"car_upside"}
           style={{
             position:"absolute",
             bottom:"5%",
-            left:"37%"
+            left:"39%"
           }}
-          height={250}
+          height={200}
         />
 
 
         <h3
           style={{
             position:"absolute",
-            left:"7%",
+            left:"10%",
             bottom:"5%",
             border:"2px solid white",
             borderRadius:"15px",
@@ -130,7 +128,7 @@ export default class Driving extends Component<Props> {
         <h3
           style={{
             position:"absolute",
-            right:"5%",
+            right:"7%",
             bottom:"5%",
             border:"2px solid white",
             borderRadius:"15px",
