@@ -1,6 +1,6 @@
 // @flow
-import React, { Component, Fragment } from 'react';
-import {TimelineMax, Power2} from 'gsap/TweenMax';
+import React, { Component } from 'react';
+import { TimelineMax } from 'gsap/TweenMax';
 import styles from './IgnOn.css';
 
 type Props = {};
@@ -52,11 +52,9 @@ export default class IgnOn extends Component<Props> {
   render() {
     const {welcomeMessage} = this.state;
     return (
-      <Fragment>
-        <div className={styles.container} data-tid="container" style={{opacity:0}}>
-          <h2 style={{position:"absolute", top:"40%", width:"100%"}}>{welcomeMessage}</h2>
-        </div>
-      </Fragment>
+      <div className={styles.container} data-tid="container" style={{opacity:0}}>
+        <h2 style={{position:"absolute", top:"40%", width:"100%"}}>{welcomeMessage}</h2>
+      </div>
     );
   }
 }

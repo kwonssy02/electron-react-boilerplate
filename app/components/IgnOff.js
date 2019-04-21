@@ -7,7 +7,7 @@ type Props = {};
 
 export default class IgnOff extends Component<Props> {
   componentDidMount(): void {
-    setTimeout(this.turnOff, 3000);
+    setTimeout(this.turnOff, 2000);
   }
 
   turnOff = () => {

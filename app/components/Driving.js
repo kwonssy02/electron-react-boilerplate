@@ -8,6 +8,7 @@ import styles from './Driving.css';
 import carTailImg from '../../resources/images/car_tail.png';
 import carUpsideImg from '../../resources/images/car_upside.png';
 import properties from '../constants/properties';
+import { TimelineMax } from "gsap/TweenMax";
 
 const fs = window.require('fs');
 type Props = {};
@@ -46,12 +47,28 @@ export default class Driving extends Component<Props> {
         speed:speed+5
       });
     }, 1000);
+
+    this.turnOn();
+  }
+
+  turnOn = () => {
+    const SELECTOR_SCREEN_ELEMENT = '.' + styles.container;
+    const timeline = new TimelineMax({
+      paused: true
+    });
+
+    timeline
+      .to(SELECTOR_SCREEN_ELEMENT, 2, {
+        opacity:"1"
+      });
+
+    timeline.restart();
   }
 
   render() {
     const { mileage, speed } = this.state;
     return (
-      <div className={styles.container} data-tid="container">
+      <div className={styles.container} data-tid="container" style={{opacity:0}}>
         <h2 style={{position:"absolute", top:"5%", width:"100%", fontSize:"4rem"}}>HYUNDAI</h2>
 
         <h2 style={{position:"absolute", top:"40%", width:"100%", fontSize:"2rem", fontWeight:"lighter"}}>Mileage</h2>
