@@ -7,6 +7,7 @@ import Gauge from 'react-canvas-gauge';
 import styles from './Home.css';
 import carTailImg from '../../resources/images/car_tail.png';
 import carUpsideImg from '../../resources/images/car_upside.png';
+import properties from '../constants/properties.json';
 
 const fs = window.require('fs');
 type Props = {};
@@ -26,7 +27,7 @@ export default class Home extends Component<Props> {
   componentDidMount(): void {
     setInterval(() => {
       fs.readFile(
-        '/Users/khc/workspace/electron-react-boilerplate/resources/mileage.info',
+        properties.mileageFilePath,
         'utf-8',
         (err, data) => {
           if(err) {
